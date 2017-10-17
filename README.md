@@ -10,11 +10,17 @@ Redwood City, California, 1988.
 
 # Running the model 
 
-Run version v1.0
+The model depends on [GAMS](https://www.gams.com/). 
+
+Run version v1.0 - Data and model in the same file.
 
 	gams main.gms gdx=output
 
-Run version v2.0 
+Run version v2.0 - Split data and model.
+
+	gams main.gms gdx=output
+
+Run version v3.0 - Generalized model to input CSV files. A small dataset for testing is available in the data folder.
 
 	gams main.gms gdx=output
 

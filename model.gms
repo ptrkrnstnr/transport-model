@@ -21,20 +21,26 @@ $setglobal data .%SLASH%data%SLASH%
 * Input data 
 $include input.gms
 
+* Compute the set elements based on the data
+set plant  'Available plants' 
+    market 'Markets';
+plant(i)$(a(i))=yes;
+market(j)$(b(j))=yes;
+
 * Model 
-parameter c(plant,market)  'Transport cost in monetary unit per transported unit' ;
+parameter c(*,*)  'Transport cost in monetary unit per transported unit' ;
           c(plant,market) = f * d(plant,market) ;
 
 variables
-     x(plant,market)  'shipment in cases'
-     z                'Total transportation costs in monetary units' ;
+     x(*,*)  'shipment in cases'
+     z       'Total transportation costs in monetary units' ;
 
 positive variable x ;
 
 equations
-     cost            'objective function'
-     supply(plant)   'supply limit at plant'
-     demand(market)  'demand at market' ;
+     cost       'objective function'
+     supply(*)  'supply limit at plant'
+     demand(*)  'demand at market' ;
 
 cost ..        z  =e=  sum((plant,market), c(plant,market)*x(plant,market)) ;
 

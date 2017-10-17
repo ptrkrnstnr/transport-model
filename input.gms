@@ -28,10 +28,3 @@ $offdelim onlisting
 /;
 
 
-* Get sets from 
-set plant(i)
-    market(j);
-
-plant(i)=a(i);
-market(j)=b(j);
-
