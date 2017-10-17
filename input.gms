@@ -28,9 +28,9 @@ $offdelim onlisting
 /;
 
 
-* Get sets from 
-set plant(i)
-    market(j);
+* Get sets from parameters  
+set plant
+    market;
 
 plant(i)=a(i);
 market(j)=b(j);
