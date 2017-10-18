@@ -11,13 +11,6 @@ Redwood City, California, 1988.
 
 $offtext
 
-* Set global variable SLASH based on the operating system
-$setglobal SLASH \
-$if %system.filesys% == UNIX $setglobal SLASH /
-
-* Set path to data
-$setglobal data .%SLASH%data%SLASH%
-
 * Input data 
 $include input.gms
 
@@ -32,15 +25,15 @@ parameter c(*,*)  'Transport cost in monetary unit per transported unit' ;
           c(plant,market) = f * d(plant,market) ;
 
 variables
-     x(*,*)  'shipment in cases'
+     x(*,*)  'Shipment in product units'
      z       'Total transportation costs in monetary units' ;
 
 positive variable x ;
 
 equations
-     cost       'objective function'
-     supply(*)  'supply limit at plant'
-     demand(*)  'demand at market' ;
+     cost       'Objective function. Cost in monetary units'
+     supply(*)  'Supply limit at plant in product units'
+     demand(*)  'Demand at market in product units' ;
 
 cost ..        z  =e=  sum((plant,market), c(plant,market)*x(plant,market)) ;
 
