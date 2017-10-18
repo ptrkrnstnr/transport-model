@@ -11,13 +11,6 @@ Redwood City, California, 1988.
 
 $offtext
 
-* Set global variable SLASH based on the operating system
-$setglobal SLASH \
-$if %system.filesys% == UNIX $setglobal SLASH /
-
-* Set path to data
-$setglobal data .%SLASH%data%SLASH%
-
 * Input data 
 $include input.gms
 
